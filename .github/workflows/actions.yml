@@ -1,7 +1,10 @@
 name: Actions Workflow
 
 on:
-  push:
+  schedule:
+    - cron: "0/5 * * * *"
+    - cron: "0/6 * * * *"
+  # push:
   pull_request:
     types: [closed, assigned, opened, reopened]
 
@@ -13,6 +16,7 @@ jobs:
         run: |
           pwd
           ls -a
+          echo "Common baby america!"
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
